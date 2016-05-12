@@ -1,0 +1,20 @@
+---
+
+- name: add Docker repo
+  copy:
+    dest="/etc/yum.repos.d/docker.repo"
+    owner="root"
+    group="root"
+    mode=640
+    src=docker.repo
+    
+- name: install docker-engine
+  yum: name=docker-engine
+  become: True
+
+- name: enable and start docker
+  service: name=docker state=started enabled=yes
+
+
+
+ 
