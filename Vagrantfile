@@ -29,7 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       
       ipAddr = "192.168.0.10#{i+1}"
 
-      puts "Setting up VM #{name}.cluster / IP #{ipAddr}"
       config.vm.define name do |vmInstance|
         vmInstance.vm.hostname = "#{name}.cluster"
         vmInstance.vm.network :private_network, ip: ipAddr
